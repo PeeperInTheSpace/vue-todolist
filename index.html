@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE ToDoList</title>
+    <!-- VUE JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js"
+    integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- SCRIPT -->
+    <script src="js/script.js" defer></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- GOOGLE FONTS -->
+
+
+</head>
+
+    <body>
+
+        <main>
+            
+            <!-- PAGE TITLE -->
+            <div class="d-flex flex-column text-center">
+                <img src="img/Logo.png" alt="logo" class="img-fluid w-25 mt-5 align-self-center">
+                <h1 class="mb-5">To Do List</h1>
+            </div>
+
+            <section class="container d-flex flex-column p-5 justify-content-center align-items-center fl-mainsection rounded-5 w-25" id="root">
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Inserisci un nuovo task" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Aggiungi</button>
+                </div>                  
+
+                <ul>
+                    <li v-for="(element, index) in toDoArray" :class="element.done === true ? 'done' : ''">
+                        {{ toDoArray[index].text }} <i class="bi bi-x-circle-fill p-3" @click="deleteTask(index)"></i>
+                    </li>
+                </ul>
+            </section>
+    
+         </main>
+
+    </body>
+
+</html>

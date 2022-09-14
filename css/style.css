@@ -1,0 +1,21 @@
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle, rgba(210,224,255,1) 17%, rgba(3,83,99,1) 100%) fixed, no-repeat;
+}
+
+/* PERSONAL CLASSES & IDs */
+
+.fl-mainsection {
+    background-color: white;
+}
+
+.done {
+    text-decoration: line-through;
+}
