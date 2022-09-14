@@ -19,3 +19,7 @@ body {
 .done {
     text-decoration: line-through;
 }
+
+.fl-h1 {
+    font-family: 'Bebas Neue', cursive;
+}   

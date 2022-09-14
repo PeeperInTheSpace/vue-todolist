@@ -29,14 +29,38 @@ const vueToDoList = new Vue (
     
                 ],
 
+                task : ''
+
             },
 
             methods : {
 
-                deleteTask: function(index) {
+                deleteTask(index) {
                     this.toDoArray.splice(index, 1)
+                },
+
+                addNewTask() {
+
+                    let newTask = {
+                        text: this.task,
+                        done: false
+                    }
+
+                    this.toDoArray.push(newTask)
+
+                    this.task = ''
+
+                },
+
+                doneUndone(index) {
+                    this.toDoArray[index].done = !this.toDoArray[index].done;
                 }
+
+
+
             }
+
+
 
         }
     

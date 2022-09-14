@@ -20,9 +20,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
 
-</head>
+</head><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <body>
 
@@ -31,19 +36,19 @@
             <!-- PAGE TITLE -->
             <div class="d-flex flex-column text-center">
                 <img src="img/Logo.png" alt="logo" class="img-fluid w-25 mt-5 align-self-center">
-                <h1 class="mb-5">To Do List</h1>
+                <h1 class="mb-5 fl-h1">To Do List</h1>
             </div>
 
-            <section class="container d-flex flex-column p-5 justify-content-center align-items-center fl-mainsection rounded-5 w-25" id="root">
+            <section class="container d-flex flex-column p-5 justify-content-center align-items-center fl-mainsection rounded-5 w-50" id="root">
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Inserisci un nuovo task" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Aggiungi</button>
+                    <input type="text" class="form-control" placeholder="Inserisci un nuovo task" aria-describedby="button-addon2" v-model="task" v-on:keyup.enter="addNewTask">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addNewTask">Aggiungi</button>
                 </div>                  
 
                 <ul>
                     <li v-for="(element, index) in toDoArray" :class="element.done === true ? 'done' : ''">
-                        {{ toDoArray[index].text }} <i class="bi bi-x-circle-fill p-3" @click="deleteTask(index)"></i>
+                        <p @click="doneUndone(index)">{{ toDoArray[index].text }} <i class="bi bi-x-circle-fill p-3" @click="deleteTask(index)"></i></p>
                     </li>
                 </ul>
             </section>
